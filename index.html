@@ -1,0 +1,99 @@
+<div class="fleche">
+  <button class="trigger">
+    Menu <span></span>
+  </button>
+</div>
+<div class="croix">
+  <button class="trigger">
+    Menu <span></span>
+  </button>
+</div>
+<style>
+  body {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body > div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.trigger {
+  position: relative;
+  background: #FFF;
+  width: 120px;
+  height: 120px;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.2);
+  /*icon replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.trigger span,
+.trigger span::before,
+.trigger span::after {
+  position: absolute;
+  width: 44px;
+  height: 4px;
+  background: #31AA39;
+  border-radius: 4px;
+}
+
+.trigger span {
+  top: calc(50% - 2px);
+  left: calc(50% - 22px);
+  transition: transform 0.3s;
+}
+
+.trigger span::before,
+.trigger span::after {
+  content: "";
+  left: 0;
+  transition: transform 0.4s, width 0.4s, opacity 0.1s;;
+}
+
+.trigger span::before {
+  bottom: 12px;
+}
+
+.trigger span::after {
+  top: 12px;
+}
+/*****  FLECHE *****/
+.fleche .trigger:hover span {
+  transform: rotate(180deg);
+}
+.fleche .trigger:hover span::before {
+  transform: translate(-2px, 5px) rotate(-45deg);
+  width: 50%;
+}
+.fleche .trigger:hover span::after {
+  transform: rotate(45deg);
+  transform: translate(-2px, -5px) rotate(45deg);
+  width: 50%;
+}
+/**  CROIX ***/
+.croix .trigger:hover span {
+  transform: rotate(135deg);
+}
+.croix .trigger:hover span::before {
+  transform: translate(0px, 12px) rotate(-90deg);
+  width: 100%;
+  opacity:0;
+}
+.croix .trigger:hover span::after {
+ 
+  transform: translate(0px, -12px) rotate(90deg);
+  width: 100%;
+  opacity: 1;
+}
+</style>
